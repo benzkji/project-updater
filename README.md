@@ -21,10 +21,10 @@ therein, place a file `update-xy-1.sh`. This shell script will be executed in th
 
 What it does:
 
-    - Get all tags that start with `update-7.2`
-    - For every tag found, execute it's script if available
-    - If there is a `tagname.break` file found, execution is aborted, for manual hands on
-    - If at startup, the current tag name matches a tag in the tag list, execution will start right after
+- Get all tags that start with `update-7.2`
+- For every tag found, execute it's script if available
+- If there is a `tagname.break` file found, execution is aborted, for manual hands on
+- If at startup, the current tag name matches a tag in the tag list, execution will start right after
 
 Options:
 
