@@ -3,13 +3,14 @@ import os
 import click
 import subprocess
 
+
 @click.command()
-@click.option('--name', help='Name of your update. Example: update-4.7', required=True)
-@click.option('--tag-prefix', default='', help='Prefix for your update tags. Example: update-4.7-')
-@click.option('--project-path', default='.', help='Root path of project, if not .',)
-@click.option('--start-after', help='Start after this step.')
+@click.option('--name', help='Name of your update and folder where we\'ll look for shell scripts. Example: update-4.7.', required=True)
+@click.option('--tag-prefix', default='', help='Prefix for your update tags. If empty, name is used. Example: update-4.7-')
+@click.option('--project-path', default='.', help='Root path of project, if not "."',)
+@click.option('--start-after', help='Start after this step/tag.')
 @click.option('--silent', help='Always yes, no breaks.')
-def updater(name, tag_prefix, project_path, start_after, silent):
+def project_updater(name, tag_prefix, project_path, start_after, silent):
     """
     help for step by step updating a (django) project.
 
@@ -24,9 +25,10 @@ def updater(name, tag_prefix, project_path, start_after, silent):
         if e.output:
             click.echo(e.output)
         else:
-            click.echo("Error getting tags, aborting!")
+            click.echo("No Tags found, aborting!")
         exit()
     tags = tags.splitlines()
+    return
     # check if current tag is in taglist, if yes, start from there onwards
     current_tag = None
     if start_after:
@@ -74,4 +76,4 @@ def updater(name, tag_prefix, project_path, start_after, silent):
 
 
 if __name__ == '__main__':
-    updater()
+    project_updater()
