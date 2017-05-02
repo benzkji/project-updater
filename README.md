@@ -6,7 +6,7 @@ from south to django migrations (south2django).
 
 ## Install
 
-    pip install project-updater
+    pip install -e git+https://github.com/benzkji/project-updater
 
 ## Usage
 
