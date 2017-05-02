@@ -42,4 +42,5 @@ recursivly rename `migrations` to `south_migrations`, add `migrations` folder wi
 1.7+.
 
 Options:
+
     --project-path TEXT  Root path of project, if not .
