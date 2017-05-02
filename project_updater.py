@@ -28,7 +28,6 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
             click.echo("No Tags found, aborting!")
         exit()
     tags = tags.splitlines()
-    return
     # check if current tag is in taglist, if yes, start from there onwards
     current_tag = None
     if start_after:
