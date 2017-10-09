@@ -34,7 +34,7 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
         current_tag = start_after
     else:
         try:
-            current_tag = subprocess.check_output('cd %s && git describe' % project_path, shell=True)
+            current_tag = subprocess.check_output('cd %s && git describe --tags' % project_path, shell=True)
         except subprocess.CalledProcessError as e:
             current_tag = ''
     current_tag = current_tag.strip()
