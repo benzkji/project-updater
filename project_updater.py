@@ -60,7 +60,8 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
                 click.echo(file.read())
                 file.close()
                 subprocess.check_call(('chmod', 'u+x', command, ))
-                subprocess.check_call(('chmod', 'u+x', command, ))
+                subprocess.check_call(command)
+                # undo chmod, if needed!
                 subprocess.check_call(('git', 'checkout', '.'))
             else:
                 click.echo("No script for %s. Going ahead." % tag)
