@@ -59,6 +59,7 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
                 file = open(command, 'r')
                 click.echo(file.read())
                 file.close()
+                subprocess.call('chmod u+x {}'.format(command))
                 subprocess.call(command)
             else:
                 click.echo("No script for %s. Going ahead." % tag)
