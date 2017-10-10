@@ -46,13 +46,10 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
         click.echo("#### Starting right after %s" % current_tag)
     for tag in tags:
         click.echo("-----------------------------------")
-        info_files = glob.glob(os.path.join(project_path, name, tag + "*.txt"))
-        info_file_name = ''
-        if len(info_files):
-            info_file_name = info_files[0]
-        click.echo("#### To step {} ({})".format(tag, info_file_name))
-        if not click.confirm('Do you want to continue?', default=True):
-            exit()
+        click.echo("#### To step {}".format(tag))
+        if not silent:
+            if not click.confirm('Do you want to continue?', default=True):
+                exit()
         try:
             git_out = subprocess.check_output('cd %s && git checkout %s' % (project_path, tag), shell=True)
         except subprocess.CalledProcessError as e:
