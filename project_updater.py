@@ -63,9 +63,10 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
         try:
             command = os.path.join(project_path, name, tag + ".sh")
             if os.path.isfile(command):
-                click.echo("running %s" % command)
+                click.echo("running: %s" % command)
                 file = open(command, 'r')
                 click.echo(file.read())
+                click.echo("-----------------------------------")
                 file.close()
                 subprocess.check_call(('chmod', 'u+x', command, ))
                 subprocess.check_call(command)
