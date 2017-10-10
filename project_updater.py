@@ -44,9 +44,11 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
         tags.pop(0)
         click.echo("-----------------------------------")
         click.echo("#### Starting right after %s" % current_tag)
+        click.echo("-----------------------------------")
     for tag in tags:
         click.echo("-----------------------------------")
         click.echo("#### To step {}".format(tag))
+        click.echo("-----------------------------------")
         if not silent:
             if not click.confirm('Do you want to continue?', default=True):
                 exit()
