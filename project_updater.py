@@ -1,5 +1,6 @@
 import os
 import glob
+import time
 
 import click
 import subprocess
@@ -51,6 +52,8 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
         if not silent:
             if not click.confirm('Do you want to continue?', default=True):
                 exit()
+        else:
+            time.sleep(2)
         try:
             git_out = subprocess.check_output('cd %s && git checkout %s' % (project_path, tag), shell=True)
         except subprocess.CalledProcessError as e:
