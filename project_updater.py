@@ -82,6 +82,9 @@ def project_updater(name, tag_prefix, project_path, start_after, silent):
             click.echo("#### Hasta la vista. Break after %s" % tag)
             click.echo("-----------------------------------")
             exit(0)
+        click.echo("-----------------------------------")
+        click.echo("#### Finished {}".format(tag))
+        click.echo("-----------------------------------")
     click.echo("-----------------------------------")
 
 
