@@ -10,7 +10,7 @@ import subprocess
 @click.option('--tag-prefix', default='', help='Prefix for your update tags. If empty, name is used. Example: update-4.7-')
 @click.option('--project-path', default='.', help='Root path of project, if not "."',)
 @click.option('--start-after', help='Start after this step/tag.')
-@click.option('--silent', help='Always yes, no breaks.')
+@click.option('--silent/--confirm', help='Silent or confirm mode. Breaks will always be respected!', default=False)
 def project_updater(name, tag_prefix, project_path, start_after, silent):
     """
     help for step by step updating a (django) project.
